@@ -1,3 +1,5 @@
 # mlgarcia_DatosVivos_TP_Final
 
-<img width="1076" height="504" alt="image" src="https://github.com/user-attachments/assets/d1e15095-52e0-430d-95b1-56f2a510e815" />
+Link: https://huggingface.co/spaces/mlgarcia/edvai
+
+<img width="1347" height="696" alt="image" src="https://github.com/user-attachments/assets/a60c95b6-e003-4a37-9978-c7860fc0b116" />
