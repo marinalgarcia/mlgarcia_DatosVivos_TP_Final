@@ -64,10 +64,12 @@ Interfaz simple para ingresar variables de una propiedad y obtener la **predicci
 ## 🧠 Modelo
 
 - Archivo: rf_default.pkl
-
 - Recomendación: un Pipeline de scikit-learn que incluya preprocesamiento + modelo.
+- En la carpeta huggingface se encontrarán los archivos mencionados para la ejecucion.
 
 ## 📦 Ejecución local
+
+En la carpeta huggingface se encontrarán los archivos mencionados para la ejecucion.
 
 pip install -r requirements.txt
 
