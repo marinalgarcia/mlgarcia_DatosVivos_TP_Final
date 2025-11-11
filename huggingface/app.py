@@ -9,7 +9,7 @@ from pathlib import Path
 MODEL_PATH = Path("rf_default.pkl")
 COLS_PATH = Path("columnas_features.pkl")
 PLACE_FREQ_PATH = Path("place_name_freq.pkl")
-PROP_OHE_PATH = Path("property_type_ohe")      # sin .pkl (tal cual compartiste)
+PROP_OHE_PATH = Path("property_type_ohe")      
 STATE_OHE_PATH = Path("state_name_ohe.pkl")
 
 # ---------------- Carga robusta ----------------
@@ -24,7 +24,7 @@ def error_card(message: str) -> str:
     border:1px solid #FFB3B3;
     border-radius:14px;
     padding:18px;
-    color:#7A0B0B;
+    color:#7A0B0B;  
     text-align:center;
     font-weight:700;
 ">
@@ -43,7 +43,7 @@ def result_card(formatted_ars: str) -> str:
     box-shadow: 0 6px 18px rgba(10, 92, 79, 0.10);
 ">
   <div style="font-size:14px;color:#0A5C4F;opacity:0.85;margin-bottom:8px;">
-    Precio estimado (ARS)
+    Precio estimado (USD)
   </div>
   <div style="font-size:40px;font-weight:800;color:#0A5C4F;letter-spacing:0.5px;">
     {formatted_ars}
@@ -101,22 +101,23 @@ place_name_choices = list(map(str, place_freq_series.index))
 
 # ---------------- Definición de inputs crudos (UI) ----------------
 FEATURES = [
-    {"name": "surface_total",   "label": "Superficie total (m²)",    "type": "number", "value": 60.0, "min": 10},
-    {"name": "surface_covered", "label": "Superficie cubierta (m²)", "type": "number", "value": 50.0, "min": 0},
-    {"name": "rooms",           "label": "Ambientes",                "type": "slider", "value": 2,    "min": 1, "max": 10, "step": 1},
-    {"name": "bedrooms",        "label": "Dormitorios",              "type": "slider", "value": 1,    "min": 0, "max": 8,  "step": 1},
-    {"name": "bathrooms",       "label": "Baños",                    "type": "slider", "value": 1,    "min": 0, "max": 5,  "step": 1},
     {"name": "property_type",   "label": "Tipo de propiedad",        "type": "dropdown",
      "choices": prop_categories, "value": prop_categories[0] if prop_categories else None},
     {"name": "state_name",      "label": "Zona/Provincia",           "type": "dropdown",
      "choices": state_categories, "value": state_categories[-1] if state_categories else None},
     {"name": "place_name",      "label": "Barrio / Localidad",       "type": "dropdown",
      "choices": place_name_choices, "value": "Palermo" if "Palermo" in place_name_choices else place_name_choices[0]},
+    {"name": "rooms",           "label": "Ambientes",                "type": "slider", "value": 2,    "min": 1, "max": 10, "step": 1},
+    {"name": "bedrooms",        "label": "Dormitorios",              "type": "slider", "value": 1,    "min": 0, "max": 8,  "step": 1},
+    {"name": "bathrooms",       "label": "Baños",                    "type": "slider", "value": 1,    "min": 0, "max": 5,  "step": 1},
+    {"name": "surface_total",   "label": "Superficie total (m²)",    "type": "number", "value": 60.0, "min": 10},
+    {"name": "surface_covered", "label": "Superficie cubierta (m²)", "type": "number", "value": 50.0, "min": 0},
+    
 ]
 
 # ---------------- Utilidades ----------------
 def _format_ars(x: float) -> str:
-    return f"$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return f"$ {x:,.0f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 def _validate_raw(args):
     row = {}
@@ -294,8 +295,7 @@ with gr.Blocks(title="Predicción de Precio de Propiedad") as demo:
             gr.ClearButton(components=[*inputs, output], value="🧹 Limpiar")
 
             btn_predict.click(predict_price, inputs=inputs, outputs=output)
-            # Si querés endpoint fijo:
-            # btn_predict.click(predict_price, inputs=inputs, outputs=output, api_name="/predict")
+            
 
         # Columna 3: Ayuda + Ejemplos
         with gr.Column(scale=1):
@@ -315,13 +315,14 @@ with gr.Blocks(title="Predicción de Precio de Propiedad") as demo:
             )
             gr.Examples(
                 examples=[
-                    [60, 50, 2, 1, 1, "Departamento", "Capital Federal", "Palermo"],
-                    [85, 75, 3, 2, 2, "Casa", "Bs.As. G.B.A. Zona Norte", "San Isidro"],
-                    [120, 100, 4, 3, 3, "PH", "Bs.As. G.B.A. Zona Sur", "Lanús"],
+                    ["Departamento", "Capital Federal", "Palermo", 2, 1, 1,60, 50],
+                    ["Casa", "Bs.As. G.B.A. Zona Norte", "San Isidro", 3, 2, 2,85, 75],
+                    ["PH", "Bs.As. G.B.A. Zona Sur", "Lanús", 4, 3, 3, 120, 100 ],
                 ],
                 inputs=inputs,
                 label="Ejemplos",
             )
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch()
+    #demo.launch(share=True)
