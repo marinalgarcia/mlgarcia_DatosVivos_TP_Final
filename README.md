@@ -26,16 +26,18 @@ La elección de utilizar el modelo de Random Forest (default) porque proporciona
 - En promedio, el modelo se equivoca en 39,689 dólares por predicción, pero se observan algunos errores grandes
 - Hay factores no incluidos en los datos que influyen en la valuación de una propiedad,, por ejemplo disponibilidad de amenities, antiguedad y estado del inmueble entre otros.
 
-Variables incluidas:
+**Variables incluidas:**
 Se eligieron variables que tenen un gran imapctro a la hora de predecir el valor de una propiedad.:
 	surface_total y surface_covered
 	property_type:
 	state_name y place_name
 	Rooms, bedrooms y bathrooms
-Variables descartadas:
+
+**Variables descartadas:**
 	Latitud y Longitud: la ubicación geográfica ya se encuentra representada en otras variables.
 	Fecha de Publicación: no suele tener una relación directa con el precio de la propiedad. 
 
+**Aclaración:**
 - El storytelling detallado, junto a la justificación de las decisiones se encuentran al final de cada archivo .ipynb.
 
 - Los archivos .pkl se encuentran en la carpeta huggingface.
@@ -98,4 +100,4 @@ result = client.predict(
 print(result)```</pre>
 
 
-El código además se encuentra en Use Via API - ejemplo de predictor.ipynb
+**El código además se encuentra en Use Via API - ejemplo de predictor.ipynb**
