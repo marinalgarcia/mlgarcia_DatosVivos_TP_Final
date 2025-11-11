@@ -39,7 +39,9 @@ Variables descartadas:
 	Latitud y Longitud: la ubicación geográfica ya se encuentra representada en otras variables.
 	Fecha de Publicación: no suele tener una relación directa con el precio de la propiedad. 
 
-El storytelling detallado, junto a la justificación de las decisiones se encuentran al final de cada archivo .ipynb.
+- El storytelling detallado, junto a la justificación de las decisiones se encuentran al final de cada archivo .ipynb.
+
+- Los archivos .pkl se encuentran en la carpeta huggingface.
 
 # Predicción de Precio de Propiedades (Gradio + Hugging Face Spaces)
 
@@ -59,7 +61,7 @@ Interfaz simple para ingresar variables de una propiedad y obtener la **predicci
 
 1. Abre el Space y completa los campos requeridos.
 
-2. Presiona **“Submit”** para obtener el precio estimado en USD.
+2. Presiona **“Predecir”** para obtener el precio estimado en USD.
 
 ## 🧠 Modelo
 
