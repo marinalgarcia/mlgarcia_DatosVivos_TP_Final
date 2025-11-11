@@ -7,12 +7,9 @@ El mercado inmobiliario argentino es dinámico y presenta variaciones significat
 
 ## Insights:
 
-Distribución Geográfica de las Propiedades:: 
-la mayor concentración de anuncios se encuentra en Capital Federal (52%)
-Tipo de Propiedad:
-La mayoría de los anuncios (63%) corresponde a departamentos
-Superficie Promedio de los Departamentos:
-Bs.As. G.B.A. Zona Norte presenta la superficie promedio más grande (77.53 m²), lo que indica un mercado orientado a propiedades más amplias, probablemente debido a su desarrollo residencial y una mayor demanda por espacio
+- Distribución geográfica de las propiedades:  la mayor concentración de inmuebles se encuentra en Capital Federal (52%)
+- Tipo de propiedad:  la mayoría de los anuncios (63%) corresponde a departamentos
+- Superficie promedio:  la superficie promedio más grande (77.53 m²) corresponde a Bs.As. G.B.A. Zona Norte, lo que indica un mercado orientado a propiedades más amplias, probablemente debido a su desarrollo residencial y una mayor demanda por espacio
 
 ## Conclusión Final: 
 Capital Federal sigue siendo el mercado inmobiliario más dinámico y caro, especialmente en barrios como Puerto Madero y Recoleta, que continúan siendo puntos de referencia en términos de valor.
@@ -25,9 +22,9 @@ La elección de utilizar el modelo de Random Forest (default) porque proporciona
 
 ## Insights:
 
-El modelo explica aproximadamente el 68 % de la variabilidad de los precios. 
-En promedio, el modelo se equivoca en 39,689 dólares por predicción, PERO SE OBSERVAN algunos errores grandes
-Hay factores no incluidos en los datos que influyen en la valuación de una propiedad,, por ejemplo disponibilidad de amenities, antiguedad y estado del inmueble entre otros.
+- El modelo explica aproximadamente el 68 % de la variabilidad de los precios. 
+- En promedio, el modelo se equivoca en 39,689 dólares por predicción, pero se observan algunos errores grandes
+- Hay factores no incluidos en los datos que influyen en la valuación de una propiedad,, por ejemplo disponibilidad de amenities, antiguedad y estado del inmueble entre otros.
 
 Variables incluidas:
 Se eligieron variables que tenen un gran imapctro a la hora de predecir el valor de una propiedad.:
